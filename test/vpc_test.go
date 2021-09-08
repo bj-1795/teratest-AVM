@@ -37,19 +37,7 @@ func TestNetwork(t *testing.T) {
 		// This allows us to define Terraform variables. We have a variable named
 		// "bucket_name" which essentially is a suffix. Here we are are using the
 		// random package to get a unique id we can use for testing, as bucket names
-		//VarFiles: []string{"../example/network/test.tfvars"},
-		Vars: map[string]interface{}{
-			"vpc_name":           "test-vpc",
-			"region":             "ap-southeast-1",
-			"subnet_az":          []string{"a", "b"},
-			"tg_subnets":         []string{"10.2.3.0/24", "10.2.4.0/24"},
-			"subnet_values":      string(myJson),
-			"cidr_block":         "10.237.252.0/22",
-			"secondary_cidr":     []string{"10.3.0.0/16", "10.4.0.0/16"},
-			"transit_gateway_id": "tgw-08dce9d68c5aed9a6",
-			"tags": map[string]string{"Company": "aella",
-				"PlatformEnvType": "sandbox"},
-		},
+		VarFiles: []string{"../example/network/test.tfvars"},
 	})
 
 	// We want to destroy the infrastructure after testing.
